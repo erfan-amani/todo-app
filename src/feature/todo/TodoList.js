@@ -1,18 +1,13 @@
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import CategoryList from '../category/CategoryList';
 
 import Todo from './Todo';
+import CategoryList from '../category/CategoryList';
 import './TodoList.css';
 
 const TodoList = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const items = useSelector((state) => state.items);
-
-  const categoryChangeHandler = (text) => {
-    setSelectedCategory(text);
-  };
+  const items = useSelector((state) => state.todo.items);
+  const activeCategory = useSelector((state) => state.category.active);
 
   let renderedList = (
     <div className="space-y-3 flex-grow text-gray-700">
@@ -21,9 +16,9 @@ const TodoList = () => {
   );
 
   let filteredList = items;
-  if (selectedCategory !== 'all') {
+  if (activeCategory !== 'all') {
     filteredList = items.filter(
-      (item) => item.completed === (selectedCategory === 'complete')
+      (item) => item.completed === (activeCategory === 'complete')
     );
   }
 
@@ -44,10 +39,7 @@ const TodoList = () => {
 
   return (
     <div className="flex flex-col gap-6 flex-grow ">
-      <CategoryList
-        onChange={categoryChangeHandler}
-        activeCategory={selectedCategory}
-      />
+      <CategoryList />
       {renderedList}
     </div>
   );
