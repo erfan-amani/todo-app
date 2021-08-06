@@ -1,0 +1,32 @@
+.item-enter {
+  opacity: 0;
+}
+.item-enter-active {
+  opacity: 1;
+  transition: opacity 400ms ease-in;
+}
+.item-exit {
+  opacity: 1;
+}
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 400ms ease-in;
+}
+
+/* SCROLLBAR STYLE */
+.list::-webkit-scrollbar-track {
+  padding: 2px 0;
+  border-radius: 0.625rem;
+  background-color: #ecf0f1;
+
+  position: relative;
+  right: 3.125rem;
+}
+
+.list::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.list::-webkit-scrollbar-thumb {
+  border-radius: 0.625rem;
+  background-color: #54a0ff;
+}
