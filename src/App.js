@@ -15,7 +15,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="flex justify-center items-center w-screen h-screen bg-gradient-to-br from-gray-300 to-blue-300 ">
+    <div className="flex justify-center items-center w-screen h-screen bg-gradient-to-br from-blue-200 to-purple-400 ">
       <TodoApp />
     </div>
   );
